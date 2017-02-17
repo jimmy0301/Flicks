@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -32,8 +31,6 @@ import okhttp3.Response;
 public class MovieActivity extends AppCompatActivity {
 
    private Handler handler;
-   private final int HOT = 0;
-   private final int NORMAL = 1;
    private final int REQUEST_SUCCESS = 200;
    private final int REQUEST_FAILED = 500;
 
@@ -56,8 +53,6 @@ public class MovieActivity extends AppCompatActivity {
       t.start();
 
       setupListViewListener();
-
-      Log.d("movie object", "movie object: " + movieArrayList.size());
    }
 
    private void setupListViewListener() {
@@ -67,8 +62,6 @@ public class MovieActivity extends AppCompatActivity {
          @Override
          public void onItemClick(AdapterView<?> adapterView, View item, int pos, long id) {
             Movie MovieItem = movieAdapter.getItem(pos);
-
-            Log.d("item click", "click");
 
             Bundle args = new Bundle();
             args.putInt("id", MovieItem.getId());
@@ -85,25 +78,7 @@ public class MovieActivity extends AppCompatActivity {
       });
    }
 
-   /*private String getVideoKey(int id) throws IOException, JSONException {
-      String videoKey = null;
-      String url = "https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
 
-      OkHttpClient client = new OkHttpClient();
-
-      Request request = new Request.Builder()
-                            .url(url)
-                            .build();
-
-
-      Response response = client.newCall(request).execute();
-      String responseData = response.body().string();
-      JSONObject jsonObj = new JSONObject(responseData);
-      JSONArray jsonArray = jsonObj.getJSONArray("results");
-      videoKey = jsonArray.getJSONObject(0).getString("key");
-
-      return videoKey;
-   }*/
 
    class myHandler extends Handler{
 
@@ -113,7 +88,7 @@ public class MovieActivity extends AppCompatActivity {
             case REQUEST_SUCCESS:
                Bundle b = msg.getData();
                String responseData = b.getString("result");
-               Log.d("request success", responseData);
+
                try {
                   JSONObject json = new JSONObject(responseData);
                   JSONArray movieResults = json.getJSONArray("results");
@@ -125,7 +100,6 @@ public class MovieActivity extends AppCompatActivity {
                }
                break;
             case REQUEST_FAILED:
-               Log.d("handleMsg", "request failed");
                break;
             default:
                super.handleMessage(msg);
@@ -174,7 +148,6 @@ public class MovieActivity extends AppCompatActivity {
             } catch (IOException e) {
                e.printStackTrace();
             }
-            Log.d("get request", result);
             Bundle b = new Bundle();
             b.putString("result", result);
             msg.setData(b);
@@ -182,47 +155,5 @@ public class MovieActivity extends AppCompatActivity {
          }
       }
    }
-
-   /*private void getMovieList() {
-      Log.d("getMovieList", "get movie");
-      handler.post(new Runnable() {
-         @Override
-         public void run() {
-            Message msg = handler.obtainMessage();
-
-            String url = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
-
-            OkHttpClient client = new OkHttpClient();
-            Request request = new Request.Builder().url(url).build();
-
-            Call call = client.newCall(request);
-            Response response = null;
-
-            try {
-               response = call.execute();
-               if (!response.isSuccessful()) {
-                  msg.what = REQUEST_FAILED;
-               } else {
-                  msg.what = REQUEST_SUCCESS;
-               }
-            } catch (IOException e) {
-               msg.what = REQUEST_FAILED;
-               e.printStackTrace();
-            } finally {
-               String result = null;
-               try {
-                  result = response.body().string();
-               } catch (IOException e) {
-                  e.printStackTrace();
-               }
-               Log.d("get request", result);
-               Bundle b = new Bundle();
-               b.putString("result", result);
-               msg.setData(b);
-               handler.sendMessage(msg);
-            }
-         }
-      });
-   }*/
 }
 

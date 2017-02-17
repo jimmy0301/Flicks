@@ -13,15 +13,15 @@
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:textAppearance="?android:attr/textAppearanceLarge"
-       android:layout_marginTop="10dp"
+       android:layout_marginTop="@dimen/tvDetail_top"
        android:layout_below="@+id/player"/>
 
    <TextView
        android:id="@+id/tvReleaseDate"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_marginRight="20dp"
-       android:layout_marginBottom="20dp"
+       android:layout_marginRight="@dimen/tvReleaseDate_right"
+       android:layout_marginBottom="@dimen/tvReleaseDate_bottom"
        android:text="New text"
        android:layout_below="@+id/tvDetailTitle"/>
 
@@ -36,8 +36,8 @@
        android:id="@+id/tvDetailOverview"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_marginRight="20dp"
-       android:layout_marginBottom="20dp"
+       android:layout_marginRight="@dimen/tvDetailOverview_right"
+       android:layout_marginBottom="@dimen/tvDetailOverview_bottom"
        android:text="New text"
        android:layout_below="@+id/ratingBar"/>
 

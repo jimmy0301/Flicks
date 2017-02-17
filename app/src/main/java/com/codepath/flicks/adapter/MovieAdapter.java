@@ -10,13 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.codepath.flicks.R;
-import com.codepath.flicks.activities.MovieActivity;
 import com.codepath.flicks.activities.PlayVideoActivity;
 import com.codepath.flicks.models.Movie;
 import com.squareup.picasso.Picasso;
@@ -173,7 +170,6 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
 
          if (vid == viewHolderHot.ivButton.getId()) {
             Movie movieItem = getItem(position);
-            Log.d("image", "click the image");
 
             Intent i = new Intent(context, PlayVideoActivity.class);
             i.putExtra("id", movieItem.getId());

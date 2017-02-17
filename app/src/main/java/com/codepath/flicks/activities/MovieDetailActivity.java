@@ -3,7 +3,6 @@ package com.codepath.flicks.activities;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -49,7 +48,6 @@ public class MovieDetailActivity extends YouTubeBaseActivity {
       tvReleaseDate.setText("Release Date: " + releaseDate);
       tvTitle.setText(title);
       tvOverview.setText(overview);
-      Log.d("detail", "the rating: " + rating);
       ratingBar.setNumStars(((int) Math.ceil(rating)));
       ratingBar.setRating(rating.floatValue());
 

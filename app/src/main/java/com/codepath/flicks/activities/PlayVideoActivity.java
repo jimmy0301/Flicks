@@ -1,10 +1,8 @@
 package com.codepath.flicks.activities;
 
 import android.os.AsyncTask;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.annotation.Nullable;
 
 import com.codepath.flicks.R;
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -71,7 +69,6 @@ public class PlayVideoActivity extends YouTubeBaseActivity {
          protected void onPostExecute(final String s) {
             super.onPostExecute(s);
             if (s != null) {
-               Log.d("youtube key", getResources().getString(R.string.youtube_key));
                youTubePlayerView.initialize(getResources().getString(R.string.youtube_key),
                        new YouTubePlayer.OnInitializedListener() {
                           @Override
@@ -81,6 +78,7 @@ public class PlayVideoActivity extends YouTubeBaseActivity {
                              // do any work here to cue video, play video, etc.
                              youTubePlayer.loadVideo(s);
                           }
+
                           @Override
                           public void onInitializationFailure(YouTubePlayer.Provider provider,
                                                               YouTubeInitializationResult youTubeInitializationResult) {

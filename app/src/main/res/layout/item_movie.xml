@@ -9,7 +9,7 @@
        android:id="@+id/ivmovieimage"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_margin="20dp"
+       android:layout_margin="@dimen/iv_margin"
        android:adjustViewBounds="true"
        tool:src="@mipmap/ic_launcher"
        android:layout_alignParentTop="true"/>
@@ -20,7 +20,7 @@
        android:layout_height="wrap_content"
        android:textAppearance="?android:attr/textAppearanceLarge"
        tool:text="Large Text"
-       android:layout_marginTop="10dp"
+       android:layout_marginTop="@dimen/tvDetail_top"
        android:layout_toRightOf="@+id/ivmovieimage"
        android:layout_toEndOf="@id/ivmovieimage"
        android:layout_alignParentTop="true"/>
@@ -28,8 +28,8 @@
        android:id="@+id/tvOverview"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_marginRight="20dp"
-       android:layout_marginBottom="20dp"
+       android:layout_marginRight="@dimen/tvDetailOverview_right"
+       android:layout_marginBottom="@dimen/tvDetailOverview_bottom"
        android:text="New text"
        android:layout_below="@+id/tvTitle"
        android:layout_toRightOf="@id/ivmovieimage"/>
