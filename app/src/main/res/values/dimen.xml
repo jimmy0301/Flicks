@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <dimen name="lv_movie_absolute">8dp</dimen>
+   <dimen name="tvDetail_top">10dp</dimen>
+   <dimen name="tvReleaseDate_right">20dp</dimen>
+   <dimen name="tvReleaseDate_bottom">20dp</dimen>
+   <dimen name="tvDetailOverview_right">20dp</dimen>
+   <dimen name="tvDetailOverview_bottom">20dp</dimen>
+   <dimen name="iv_margin">20dp</dimen>
+</resources>
