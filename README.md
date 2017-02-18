@@ -12,7 +12,7 @@ The following **required** functionality is completed:
 * [x] Layout is optimized with the [ViewHolder](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView#improving-performance-with-the-viewholder-pattern) pattern.
 * [x] For each movie displayed, user can see the following details:
   * [x] Title, Poster Image, Overview (Portrait mode)
-  * [ ] Title, Backdrop Image, Overview (Landscape mode)
+  * [x] Title, Backdrop Image, Overview (Landscape mode)
 
 The following **optional** features are implemented:
 
@@ -41,7 +41,7 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://i.imgur.com/zPdJ3Vf.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<img src='http://i.imgur.com/1pYAczv.gif' title='Video lanscape' width='' alt='Video Walkthrough' />
+[logo]: http://imgur.com/1pYAczv.gif "video landscape"
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
