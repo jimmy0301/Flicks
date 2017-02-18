@@ -39,7 +39,11 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
+potrait version
 <img src='http://i.imgur.com/zPdJ3Vf.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+lanscape version
+<img src='http://i.imgur.com/1pYAczv.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
