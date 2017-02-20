@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 
 public class Movie {
-   int id;
+   Long id;
    String posterPath;
    String backdropPath;
    String overview;
@@ -19,8 +19,18 @@ public class Movie {
    String releaseDate;
    Double vote_avg;
 
+   public Movie(Long id, String posterPath, String overview,
+                String title, String releaseDate, Double vote_avg) {
+      setId(id);
+      setTitle(title);
+      setVote_avg(vote_avg);
+      setReleaseDate(releaseDate);
+      setPosterPath(posterPath);
+      setOverview(overview);
+   }
+
    public Movie(JSONObject jsonObject) throws JSONException {
-      this.id = jsonObject.getInt("id");
+      this.id = jsonObject.getLong("id");
       this.releaseDate = jsonObject.getString("release_date");
       this.posterPath = jsonObject.getString("poster_path");
       this.overview = jsonObject.getString("overview");
@@ -42,6 +52,10 @@ public class Movie {
       return results;
    }
 
+   public String getImagePath() {
+      return posterPath;
+   }
+
    public String getPosterPath() {
       return String.format("https://image.tmdb.org/t/p/w342/%s", posterPath);
    }
@@ -58,7 +72,35 @@ public class Movie {
       return title;
    }
 
-   public int getId() { return id; }
+   public Long getId() { return id; }
+
+   public void setId(Long id) {
+      this.id = id;
+   }
+
+   public void setPosterPath(String posterPath) {
+      this.posterPath = posterPath;
+   }
+
+   public void setBackdropPath(String backdropPath) {
+      this.backdropPath = backdropPath;
+   }
+
+   public void setOverview(String overview) {
+      this.overview = overview;
+   }
+
+   public void setTitle(String title) {
+      this.title = title;
+   }
+
+   public void setReleaseDate(String releaseDate) {
+      this.releaseDate = releaseDate;
+   }
+
+   public void setVote_avg(Double vote_avg) {
+      this.vote_avg = vote_avg;
+   }
 
    public String getReleaseDate() {
       return releaseDate;

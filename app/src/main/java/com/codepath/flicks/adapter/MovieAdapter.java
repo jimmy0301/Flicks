@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,7 +59,7 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
    }
 
    public MovieAdapter(@NonNull Context context, List<Movie> movies) {
-      super(context, android.R.layout.simple_list_item_1, movies);
+      super(context, 0, movies);
       orientation = context.getResources().getConfiguration().orientation;
       this.context = context;
    }
@@ -115,7 +114,7 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
             }
             else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
                Picasso.with(getContext()).load(movie.getBackdropPath())
-                       .transform(new RoundedCornersTransformation(10, 10)).resize(300, 500).centerInside()
+                       .transform(new RoundedCornersTransformation(10, 10)).fit().centerInside()
                        .placeholder(R.drawable.placeholder).error(R.drawable.error48).into(viewHolderHot.ivImage);
             }
 
@@ -147,7 +146,7 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
             }
             else if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
                Picasso.with(getContext()).load(movie.getBackdropPath())
-                       .transform(new RoundedCornersTransformation(10, 10)).resize(500, 350).centerCrop()
+                       .transform(new RoundedCornersTransformation(10, 10)).resize(350, 500).centerCrop()
                        .placeholder(R.drawable.placeholder).error(R.drawable.error48).into(viewHolder.ivImage);
             }
 
@@ -179,7 +178,6 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
    }
 
    private View getInflatedLayoutForType(int type) {
-      Log.d("View type", "type: " + type);
       if (type == HOT) {
          return LayoutInflater.from(getContext()).inflate(R.layout.item_hot_movie, null);
 
@@ -191,5 +189,4 @@ public class MovieAdapter extends ArrayAdapter<Movie> {
          return null;
       }
    }
-
 }

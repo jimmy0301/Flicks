@@ -38,7 +38,7 @@ public class MovieDetailActivity extends YouTubeBaseActivity {
 
       Bundle b = getIntent().getBundleExtra("movieDetail");
 
-      int id = b.getInt("id");
+      Long id = b.getLong("id");
       Double rating = b.getDouble("rating");
       String releaseDate = b.getString("releaseDate");
       String overview = b.getString("overview");
